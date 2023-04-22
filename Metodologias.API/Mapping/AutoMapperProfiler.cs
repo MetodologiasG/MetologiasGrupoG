@@ -8,7 +8,9 @@ namespace Metodologias.API.Mapping
     {
         public AutoMapperProfiler()
         {
-            CreateMap<Sinal, SinalListDTO>();
+            CreateMap<Signal, SignalListDTO>();
+
+            CreateMap<CreateSignalDTO, Signal>();
         }
     }
 }

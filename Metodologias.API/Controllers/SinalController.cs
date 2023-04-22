@@ -9,16 +9,23 @@ namespace MetodologiasAPI.Controllers
     [Route("[controller]")]
     public class SinalController : ControllerBase
     {
-        private readonly ISinalService _sinalService;
-        public SinalController(ISinalService sinalService)
+        private readonly ISignalService _sinalService;
+        public SinalController(ISignalService sinalService)
         {
             _sinalService = sinalService;
         }
 
         [HttpGet("GetAll")]
-        public async Task<MessagingHelper<List<SinalListDTO>>> GetAllSinals()
+        public async Task<MessagingHelper<List<SignalListDTO>>> GetAllSinals()
         {
             return await _sinalService.GetAll();
+        }
+
+        [HttpPost("Create")]
+
+        public async Task<MessagingHelper> Create(CreateSignalDTO createSinal)
+        {
+            return await _sinalService.Create(createSinal);
         }
     }
 }

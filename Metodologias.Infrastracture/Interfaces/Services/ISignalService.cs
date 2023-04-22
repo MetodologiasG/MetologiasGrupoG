@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace Metodologias.Infrastracture.Interfaces.Services
 {
-    public interface ISinalService
+    public interface ISignalService
     {
-        Task<MessagingHelper<List<SinalListDTO>>> GetAll();
+        Task<MessagingHelper<List<SignalListDTO>>> GetAll();
+        Task<MessagingHelper> Create(CreateSignalDTO createSignal);
     }
 }

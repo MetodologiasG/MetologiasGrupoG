@@ -27,9 +27,9 @@ namespace Metodologias.DAL
                 Console.WriteLine("--> Seeding Data ...");
 
                 context.Sinals.AddRange(
-                    new Sinal() { Ref = "12345", Value = 50, StreetRef = "A1", PutDate = DateTime.Now, FinalDate = null },
-                    new Sinal() { Ref = "13678", Value = 80, StreetRef = "A1", PutDate = DateTime.Now, FinalDate = null },
-                    new Sinal() { Ref = "14567", Value = 100, StreetRef = "A1", PutDate = DateTime.Now, FinalDate = null }
+                    new Signal() { Ref = "12345", Value = 50, StreetRef = "A1", PutDate = DateTime.Now, FinalDate = null },
+                    new Signal() { Ref = "13678", Value = 80, StreetRef = "A1", PutDate = DateTime.Now, FinalDate = null },
+                    new Signal() { Ref = "14567", Value = 100, StreetRef = "A1", PutDate = DateTime.Now, FinalDate = null }
                 );
 
                 context.SaveChanges();
