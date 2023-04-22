@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Metodologias.DAL", "Metodol
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Metodologias.Infrastracture", "Metodologias.Infrastracture\Metodologias.Infrastracture.csproj", "{21C00378-81F3-45CD-807A-1150C2648C35}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metodologias.Tests", "Metodologias.Tests\Metodologias.Tests.csproj", "{EB128E82-ADA9-49E7-AEE2-E2BBB0889D58}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{21C00378-81F3-45CD-807A-1150C2648C35}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21C00378-81F3-45CD-807A-1150C2648C35}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21C00378-81F3-45CD-807A-1150C2648C35}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB128E82-ADA9-49E7-AEE2-E2BBB0889D58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB128E82-ADA9-49E7-AEE2-E2BBB0889D58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB128E82-ADA9-49E7-AEE2-E2BBB0889D58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB128E82-ADA9-49E7-AEE2-E2BBB0889D58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
