@@ -36,6 +36,17 @@ namespace Metodologias.API
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Metodologias.API", Version = "v1" });
             });
 
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+
+                builder.WithOrigins("http://localhost:3000", "https://localhost:3000")
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
+
 
         }
 
@@ -59,6 +70,8 @@ namespace Metodologias.API
             {
                 endpoints.MapControllers();
             });
+
+            app.UseCors("MyPolicy");
 
             AddValues.AddValuesToMemory(app);
         }
