@@ -20,7 +20,7 @@ namespace Metodologias.DAL
             }
         }
 
-        private static void SeedData(ApplicationDBContext context)
+        public static void SeedData(ApplicationDBContext context)
         {
             if (!context.Sinals.Any())
             {
