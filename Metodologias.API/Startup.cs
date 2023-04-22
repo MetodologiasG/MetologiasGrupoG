@@ -24,7 +24,7 @@ namespace Metodologias.API
             services.AddDbContext<ApplicationDBContext>(opt => opt.UseInMemoryDatabase("InMem"));
 
             //Services
-            services.AddScoped<ISinalService, SinalsService>();
+            services.AddScoped<ISignalService, SignalsService>();
 
             //Repositories
             services.AddScoped<ISinalRepository, SinalsRepository>();

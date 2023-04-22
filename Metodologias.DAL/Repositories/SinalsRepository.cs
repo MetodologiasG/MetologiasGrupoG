@@ -18,9 +18,16 @@ namespace Metodologias.DAL.Repositories
             _context = context;
         }
 
-        public async Task<List<Sinal>> GetAll()
+        public async Task<List<Signal>> GetAll()
         {
             return await _context.Sinals.ToListAsync();
+        }
+
+        public async Task Create(Signal signal)
+        {
+            await _context.Sinals.AddAsync(signal);
+            await _context.SaveChangesAsync();
+
         }
     }
 }

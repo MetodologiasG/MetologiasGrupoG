@@ -20,13 +20,13 @@ namespace Metodologias.DAL
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<Sinal>(sinal =>
+            builder.Entity<Signal>(sinal =>
             {
                 sinal.HasKey(t => t.Id);
 
             });
 
         }
-        public DbSet<Sinal> Sinals { get; set; }
+        public DbSet<Signal> Sinals { get; set; }
     }
 }

@@ -9,6 +9,7 @@ namespace Metodologias.Infrastracture.Interfaces.Repositories
 {
     public interface ISinalRepository
     {
-        Task<List<Sinal>> GetAll();
+        Task<List<Signal>> GetAll();
+        Task Create(Signal signal);
     }
 }

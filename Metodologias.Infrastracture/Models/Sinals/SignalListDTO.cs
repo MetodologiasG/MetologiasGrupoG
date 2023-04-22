@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Metodologias.Infrastracture.Models.Sinals
 {
-    public class SinalListDTO
+    public class SignalListDTO
     {
         public int Id { get; set; }
         public string Ref { get; set; }
