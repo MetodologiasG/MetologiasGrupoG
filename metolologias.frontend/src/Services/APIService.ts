@@ -5,13 +5,11 @@ class APIServiceClass {
     private instance = axios.create();
 
     constructor() {
-
         this.instance.interceptors.response.use(function (response) {
             return response;
         }, function (error) {
             return Promise.reject(error);
         });
-
     }
 
     GetURL(): string {
