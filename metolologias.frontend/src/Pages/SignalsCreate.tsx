@@ -20,7 +20,7 @@ function SignalsCreate() {
     var response = await signalService.Create(bookData);
     setLoading(false);
 
-    if (response.sucess !== true) {
+    if (response.success === false) {
         Toast.Show("error", response.message);
         return;
     }
@@ -29,7 +29,6 @@ function SignalsCreate() {
 
   return (
     <div>
-  <ToastContainer />
   <Container>
       <Title>
           <h1>Criar sinal</h1>
