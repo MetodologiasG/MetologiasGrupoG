@@ -24,9 +24,16 @@ namespace Metodologias.DAL
             {
                 sinal.HasKey(t => t.Id);
 
+                sinal.HasOne(t => t.TemporalInformation)
+                .WithOne(t => t.Signal)
+                .HasForeignKey<TemporalInformation>(b => b.SignalId)
+                .OnDelete(DeleteBehavior.Restrict); ;
+
+
             });
 
         }
         public DbSet<Signal> Sinals { get; set; }
+        public DbSet<TemporalInformation> TemporalInformation { get; set; }
     }
 }

@@ -32,6 +32,8 @@ namespace Metodologias.DAL
                     new Signal() { Ref = "14567", Value = 100, StreetRef = "A1", PutDate = DateTime.Now, FinalDate = null }
                 );
 
+                context.TemporalInformation.AddRange(new TemporalInformation() { SignalId = 1, Quality = 5, Losted = false, Removed = false });
+
                 context.SaveChanges();
             }
             else
