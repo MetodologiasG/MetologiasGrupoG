@@ -9,7 +9,6 @@ function SignalsCreate() {
   const signalService = new SignalService();
   const [signal, setSignal] = useState<SignalCreateDTO>({} as SignalCreateDTO);
   const [loading, setLoading] = useState<boolean>(false);
-  const [LoadingAuthors, setLoadingAuthors] = useState<boolean>(true);
 
   
   const createBook = async () => {

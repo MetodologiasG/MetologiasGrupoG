@@ -20,7 +20,7 @@ namespace Metodologias.DAL.Repositories
 
         public async Task<List<Signal>> GetAll()
         {
-            return await _context.Sinals.ToListAsync();
+            return await _context.Sinals.Include(t => t.TemporalInformation).ToListAsync();
         }
 
         public async Task Create(Signal signal)

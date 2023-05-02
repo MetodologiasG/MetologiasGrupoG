@@ -14,6 +14,8 @@ namespace Metodologias.Infrastracture.Entities
         public string StreetRef { get; set; }
         public DateTime PutDate { get; set; }
         public DateTime? FinalDate { get; set; }
+        public int? TemporalInformationId { get; set; }
+        public TemporalInformation? TemporalInformation { get; set; }
 
     }
 }
