@@ -26,7 +26,7 @@ function SignalsIndex() {
   const GetData = async () => {
 
     var response = await service.GetAll();
-    if(response.sucess === false || response.obj == null)
+    if(response.success === false || response.obj == null)
     {
       Toast.Show("error", response.message);
       return;
