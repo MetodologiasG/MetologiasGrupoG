@@ -24,16 +24,43 @@ namespace Metodologias.DAL
             {
                 sinal.HasKey(t => t.Id);
 
-                sinal.HasOne(t => t.TemporalInformation)
-                .WithOne(t => t.Signal)
-                .HasForeignKey<TemporalInformation>(b => b.SignalId)
-                .OnDelete(DeleteBehavior.Restrict); ;
-
-
             });
+
+            builder.Entity<TemporalInformation>(ti =>
+            {
+                ti.HasKey(t => t.Id);
+
+                ti.HasOne(t => t.Signal).WithMany(t => t.TemporalInformation).HasForeignKey(t => t.SignalId).OnDelete(DeleteBehavior.Cascade);
+            });
+
+            builder.Entity<Survey>(s =>
+            {
+                s.HasKey(t => t.Id);
+
+                s.HasOne(t => t.TemporalInformation).WithMany(t => t.Surveys).HasForeignKey(t => t.TempotalInformationId).OnDelete(DeleteBehavior.Cascade);
+
+                s.HasOne(t => t.Team).WithMany(t => t.Surveys).HasForeignKey(t => t.TeamId).OnDelete(DeleteBehavior.Cascade);
+            });
+
+            builder.Entity<Team>(ti =>
+            {
+                ti.HasKey(t => t.Id);
+            });
+
+            builder.Entity<Technician>(s =>
+            {
+                s.HasKey(t => t.Id);
+
+                s.HasOne(t => t.Team).WithMany(t => t.Technicians).HasForeignKey(t => t.TeamId).OnDelete(DeleteBehavior.Cascade);
+            });
+
+
 
         }
         public DbSet<Signal> Sinals { get; set; }
         public DbSet<TemporalInformation> TemporalInformation { get; set; }
+        public DbSet<Survey> Surveys { get; set; }
+        public DbSet<Team> Teams { get; set; }
+        public DbSet<Technician> Technicians { get; set; }
     }
 }

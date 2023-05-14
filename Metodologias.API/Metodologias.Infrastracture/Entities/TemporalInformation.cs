@@ -10,10 +10,11 @@ namespace Metodologias.Infrastracture.Entities
     {
         public int Id { get; set; }
         public int Quality { get; set; }
-        public bool Removed { get; set; }
-        public bool Losted { get; set; }
-
+        public DateTime FirstDate { get; set; }
+        public DateTime? RemoveDate { get; set; }
+        public string StreetRef { get; set; }
         public int SignalId { get; set; }
         public Signal Signal { get; set; }
+        public ICollection<Survey> Surveys { get; set; }
     }
 }
