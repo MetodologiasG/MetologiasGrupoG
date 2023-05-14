@@ -12,5 +12,7 @@ namespace Metodologias.Infrastracture.Interfaces.Services
     {
         Task<MessagingHelper<List<SignalListDTO>>> GetAll();
         Task<MessagingHelper> Create(CreateSignalDTO createSignal);
+
+        Task<MessagingHelper> SetSignal(SetSignalDTO setSignal);
     }
 }

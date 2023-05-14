@@ -16,6 +16,17 @@ namespace Metodologias.Infrastracture.Entities
         public int TempotalInformationId { get; set; }
         public TemporalInformation TemporalInformation { get; set; }
 
+        public Survey()
+        {
 
+        }
+
+        public Survey(int quality, DateTime date, Team team, TemporalInformation ti)
+        {
+            this.Quality = quality;
+            this.Date = date;
+            this.Team = team;
+            this.TemporalInformation = ti;
+        }
     }
 }

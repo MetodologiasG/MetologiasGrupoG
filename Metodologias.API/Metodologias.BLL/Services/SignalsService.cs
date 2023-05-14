@@ -15,11 +15,13 @@ namespace Metodologias.BLL.Services
     public class SignalsService : ISignalService
     {
         private readonly ISinalRepository _sinalRepository;
+        private readonly ITeamRepository _teamRepository;
         private readonly IMapper _mapper;
-        public SignalsService(ISinalRepository sinalRepository, IMapper mapper)
+        public SignalsService(ISinalRepository sinalRepository, IMapper mapper, ITeamRepository teamRepository)
         {
             _sinalRepository = sinalRepository;
             _mapper = mapper;
+            _teamRepository = teamRepository;
         }
 
         public async Task<MessagingHelper<List<SignalListDTO>>> GetAll()
@@ -62,6 +64,42 @@ namespace Metodologias.BLL.Services
             }
             return response;
 
+        }
+
+        public async Task<MessagingHelper> SetSignal(SetSignalDTO setSignal)
+        {
+            MessagingHelper response = new MessagingHelper();
+            try
+            {
+                var signal = await _sinalRepository.GetById(setSignal.SignalId);
+                if (signal == null)
+                {
+                    response.Message = "Este sinal não existe";
+                    return response;
+                }
+
+                var team = await _teamRepository.GetById(setSignal.TeamId);
+                if (setSignal == null)
+                {
+                    response.Message = "Esta equipa não existe";
+                }
+
+                response = signal.SetSignal(team, setSignal);
+                if (response.Success == false)
+                {
+                    return response;
+                }
+
+                await _sinalRepository.Update(signal);
+
+                response.Success = true;
+                response.Message = "Sinal colocado com sucesso";
+            }
+            catch (Exception ex)
+            {
+                response.Message = ex.GetBaseException().Message;
+            }
+            return response;
         }
     }
 }

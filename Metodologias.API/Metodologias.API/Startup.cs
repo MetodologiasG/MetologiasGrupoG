@@ -51,6 +51,7 @@ namespace Metodologias.API
 
             //Repositories
             services.AddTransient<ISinalRepository, SinalsRepository>();
+            services.AddTransient<ITeamRepository, TeamRepository>();
 
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
