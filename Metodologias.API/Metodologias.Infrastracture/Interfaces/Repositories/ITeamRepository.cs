@@ -7,13 +7,8 @@ using System.Threading.Tasks;
 
 namespace Metodologias.Infrastracture.Interfaces.Repositories
 {
-    public interface ISinalRepository
+    public interface ITeamRepository
     {
-        Task<List<Signal>> GetAll();
-        Task Create(Signal signal);
-
-        Task<Signal?> GetById(int id);
-
-        Task Update(Signal signal);
+        Task<Team?> GetById(int Id);
     }
 }

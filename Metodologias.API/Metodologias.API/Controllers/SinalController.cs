@@ -27,5 +27,11 @@ namespace MetodologiasAPI.Controllers
         {
             return await _sinalService.Create(createSinal);
         }
+
+        [HttpPost("SetSignal")]
+        public async Task<MessagingHelper> SetSignal(SetSignalDTO setSignal)
+        {
+            return await _sinalService.SetSignal(setSignal);
+        }
     }
 }

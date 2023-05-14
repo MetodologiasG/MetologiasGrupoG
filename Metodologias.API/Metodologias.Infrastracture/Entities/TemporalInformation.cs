@@ -16,5 +16,19 @@ namespace Metodologias.Infrastracture.Entities
         public int SignalId { get; set; }
         public Signal Signal { get; set; }
         public ICollection<Survey> Surveys { get; set; }
+
+        public TemporalInformation()
+        {
+
+        }
+
+        public TemporalInformation(int quality, DateTime putDate, DateTime? removeDate, string streetRef, Team team)
+        {
+            this.Quality = quality;
+            this.FirstDate = putDate;
+            this.RemoveDate = removeDate;
+            this.StreetRef = streetRef;
+            this.Surveys?.Add(new Survey(quality, putDate, team, this));
+        }
     }
 }

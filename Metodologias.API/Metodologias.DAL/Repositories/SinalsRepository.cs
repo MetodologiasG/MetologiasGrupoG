@@ -20,7 +20,11 @@ namespace Metodologias.DAL.Repositories
 
         public async Task<List<Signal>> GetAll()
         {
-            return await _context.Sinals.Include(t => t.TemporalInformation).ToListAsync();
+            return await _context.Sinals.Include(t => t.TemporalInformation)
+                .ThenInclude(t => t.Surveys)
+                .ThenInclude(t => t.Team)
+                .ThenInclude(t => t.Technicians)
+                .ToListAsync();
         }
 
         public async Task Create(Signal signal)
@@ -28,6 +32,21 @@ namespace Metodologias.DAL.Repositories
             await _context.Sinals.AddAsync(signal);
             await _context.SaveChangesAsync();
 
+        }
+
+        public async Task<Signal?> GetById(int id)
+        {
+            return await _context.Sinals.Include(t => t.TemporalInformation)
+               .ThenInclude(t => t.Surveys)
+               .ThenInclude(t => t.Team)
+               .ThenInclude(t => t.Technicians)
+               .Where(t => t.Id == id).FirstOrDefaultAsync();
+        }
+
+        public async Task Update(Signal signal)
+        {
+            _context.Entry<Signal>(signal).CurrentValues.SetValues(signal);
+            await _context.SaveChangesAsync();
         }
     }
 }
