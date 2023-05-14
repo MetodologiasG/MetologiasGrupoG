@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace Metodologias.Infrastracture.Entities
 {
-    public class Signal
+    public class Team
     {
         public int Id { get; set; }
-        public string Ref { get; set; }
-        public int Value { get; set; }
-        public ICollection<TemporalInformation> TemporalInformation { get; set; }
-
+        public string Name { get; set; }
+        public ICollection<Technician> Technicians { get; set; }
+        public ICollection<Survey> Surveys { get; set; }
     }
 }
