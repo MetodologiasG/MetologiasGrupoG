@@ -1,5 +1,5 @@
 import { Button, ButtonGroup, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
-import React from 'react'
+import React, { useEffect } from 'react'
 
 export type TableComponentProps = {
 
@@ -10,6 +10,11 @@ export type TableComponentProps = {
     OnClickHeader: (name: string) => void;
 }
 export default function TableComponent(props: TableComponentProps) {
+
+    useEffect(() => {
+
+    }, [props.data])
+
     return (
         <>
             <Table aria-label="Books List">
@@ -27,6 +32,7 @@ export default function TableComponent(props: TableComponentProps) {
                 </TableHead>
                 <TableBody>
                     {
+                        props.data !== undefined ?? 
                         props.data.map((item) => (
                             <TableRow key={item[0]}>
                                 {

@@ -39,6 +39,10 @@ function SignalsIndex() {
     GetData();
   }, [])
 
+  const NavigateToGetById = (id: number) => {
+    history("/signal/" + id)
+  }
+
   return (
     <div className={classes.root}>
         <Container className={classes.container} maxWidth='lg'>
@@ -60,7 +64,7 @@ function SignalsIndex() {
               </Box>
             </Box>
             <TableContainer component={Paper}>
-              <TableComponent columns={columns} data={data} OnDelete={() => {}} OnEdit={() => {}} OnClickHeader={() => {}}></TableComponent>
+              <TableComponent columns={columns} data={data} OnDelete={() => {}} OnEdit={NavigateToGetById} OnClickHeader={() => {}}></TableComponent>
             </TableContainer>
 
 
