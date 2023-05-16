@@ -101,5 +101,42 @@ namespace Metodologias.BLL.Services
             }
             return response;
         }
+
+        public async Task<MessagingHelper> WithdrawSignal(WithdrawSignalDTO withdrawSignal)
+        {
+            MessagingHelper response = new MessagingHelper();
+            try
+            {
+                var signal = await _sinalRepository.GetById(withdrawSignal.Id);
+                if (signal == null)
+                {
+                    response.Message = "Este sinal não existe";
+                    return response;
+                }
+
+                var team = await _teamRepository.GetById(withdrawSignal.TeamId);
+                if (team == null)
+                {
+                    response.Message = "Esta equipa não existe";
+                    return response;
+                }
+
+                var responseSignalWithdraw = signal.WithdrawSignal(team, withdrawSignal.Date, withdrawSignal.Quality);
+                if (responseSignalWithdraw.Success == false)
+                {
+                    response.Message = responseSignalWithdraw.Message;
+                    return response;
+                }
+
+                await _sinalRepository.Update(signal);
+                response.Success = true;
+                response.Message = "Sinal colocado com sucesso";
+            }
+            catch (Exception ex)
+            {
+                response.Message = ex.GetBaseException().Message;
+            }
+            return response;
+        }
     }
 }

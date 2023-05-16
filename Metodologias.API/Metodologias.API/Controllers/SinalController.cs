@@ -33,5 +33,17 @@ namespace MetodologiasAPI.Controllers
         {
             return await _sinalService.SetSignal(setSignal);
         }
+
+        [HttpPost("WithdrawSignal")]
+        public async Task<MessagingHelper> WithdrawSignal(WithdrawSignalDTO withdrawSignal)
+        {
+            return await _sinalService.WithdrawSignal(withdrawSignal);
+        }
+
+        //[HttpGet("{id}")]
+        //public async Task<MessagingHelper<SignalDetailDTO>> GetById(int id)
+        //{
+
+        //}
     }
 }
