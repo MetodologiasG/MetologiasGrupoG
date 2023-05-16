@@ -138,5 +138,28 @@ namespace Metodologias.BLL.Services
             }
             return response;
         }
+
+        public async Task<MessagingHelper<SignalDetailDTO>> GetById(int id)
+        {
+            MessagingHelper<SignalDetailDTO> response = new MessagingHelper<SignalDetailDTO>();
+            try
+            {
+                var signal = await _sinalRepository.GetById(id);
+                if (signal == null)
+                {
+                    response.Message = "Esta assistência não existe";
+                    return response;
+                }
+
+                response.obj = new SignalDetailDTO(signal);
+                response.Success = true;
+            }
+            catch (Exception ex)
+            {
+                response.Message = ex.GetBaseException().Message;
+            }
+            return response;
+        }
     }
+
 }

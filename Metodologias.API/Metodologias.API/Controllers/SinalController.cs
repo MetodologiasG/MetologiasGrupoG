@@ -40,10 +40,10 @@ namespace MetodologiasAPI.Controllers
             return await _sinalService.WithdrawSignal(withdrawSignal);
         }
 
-        //[HttpGet("{id}")]
-        //public async Task<MessagingHelper<SignalDetailDTO>> GetById(int id)
-        //{
-
-        //}
+        [HttpGet("{id}")]
+        public async Task<MessagingHelper<SignalDetailDTO>> GetById(int id)
+        {
+            return await _sinalService.GetById(id);
+        }
     }
 }

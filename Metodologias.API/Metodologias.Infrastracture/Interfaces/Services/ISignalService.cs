@@ -16,5 +16,7 @@ namespace Metodologias.Infrastracture.Interfaces.Services
         Task<MessagingHelper> SetSignal(SetSignalDTO setSignal);
 
         Task<MessagingHelper> WithdrawSignal(WithdrawSignalDTO withdrawSignal);
+
+        Task<MessagingHelper<SignalDetailDTO>> GetById(int id);
     }
 }
