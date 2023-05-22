@@ -20,7 +20,7 @@ namespace Metodologias.Infrastracture.Models.Sinals
         {
             this.Id = signal.Id;
             this.Ref = signal.Ref;
-            this.Value = signal.Value;
+            this.Value = signal.NominalValue;
             if (signal.TemporalInformation.Where(t => t.RemoveDate == null).Any() == true)
             {
                 this.SetSignal = false;

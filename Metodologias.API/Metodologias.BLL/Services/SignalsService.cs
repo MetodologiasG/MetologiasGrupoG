@@ -53,6 +53,13 @@ namespace Metodologias.BLL.Services
             MessagingHelper response = new MessagingHelper();
             try
             {
+                var signalExist = await _sinalRepository.GetByRef(creteSignal.Ref);
+                if (signalExist != null)
+                {
+                    response.Success = false;
+                    response.Message = "Este sinal já existe";
+                    return response;
+                }
                 var signal = _mapper.Map<Signal>(creteSignal);
                 await _sinalRepository.Create(signal);
                 response.Success = true;

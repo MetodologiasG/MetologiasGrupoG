@@ -48,5 +48,15 @@ namespace Metodologias.DAL.Repositories
             _context.Entry<Signal>(signal).CurrentValues.SetValues(signal);
             await _context.SaveChangesAsync();
         }
+
+
+        public async Task<Signal?> GetByRef(string refe)
+        {
+            return await _context.Sinals.Include(t => t.TemporalInformation)
+               .ThenInclude(t => t.Surveys)
+               .ThenInclude(t => t.Team)
+               .ThenInclude(t => t.Technicians)
+               .Where(t => t.Ref == refe).FirstOrDefaultAsync();
+        }
     }
 }

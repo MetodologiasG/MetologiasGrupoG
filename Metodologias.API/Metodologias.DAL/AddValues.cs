@@ -28,9 +28,9 @@ namespace Metodologias.DAL
 
 
                 context.Sinals.AddRange(
-                    new Signal() { Ref = "12345", Value = 50, },
-                    new Signal() { Ref = "13678", Value = 80, },
-                    new Signal() { Ref = "14567", Value = 100, }
+                    new Signal() { Ref = "12345", NominalValue = 50, },
+                    new Signal() { Ref = "13678", NominalValue = 80, },
+                    new Signal() { Ref = "14567", NominalValue = 100, }
                 );
 
                 context.TemporalInformation.AddRange(

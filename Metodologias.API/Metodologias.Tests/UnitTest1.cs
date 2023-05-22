@@ -41,7 +41,7 @@ namespace Metodologias.Tests
         public async Task CreateSignal_Success_Test()
         {
             //act
-            var signal = await _signalService.Create(new CreateSignalDTO() { Ref = "87328", Value = 30, StreetRef = "A4", PutDate = DateTime.Now });
+            var signal = await _signalService.Create(new CreateSignalDTO() { Ref = "87328", Value = 30, PutDate = DateTime.Now });
 
             var signals = await _signalService.GetAll();
             int count = signals.obj.Count();
@@ -57,9 +57,16 @@ namespace Metodologias.Tests
             return new SinalsRepository(context);
         }
 
+        private async Task<TeamRepository> CreateTeamRepository()
+        {
+            ApplicationDBContext context = new ApplicationDBContext(dbContextOptions);
+            AddValues.SeedData(context);
+            return new TeamRepository(context);
+        }
+
         private async Task CreateService()
         {
-            _signalService = new SignalsService(await CreateRepository(), _mapper);
+            _signalService = new SignalsService(await CreateRepository(), _mapper, await CreateTeamRepository());
         }
 
         public void CreateMapper()
