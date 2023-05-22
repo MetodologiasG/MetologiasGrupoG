@@ -8,10 +8,43 @@ namespace Metodologias.Infrastracture.Entities
 {
     public class TemporalInformation
     {
-        public int Id { get; set; }
+        private int id;
+        public int Id
+        {
+            get { return id; }
+            set
+            {
+                if (value < 0)
+                    throw new ArgumentException("Temporal Information Id cannot be negative.");
+                id = value;
+            }
+        }
+
         public int Quality { get; set; }
-        public DateTime FirstDate { get; set; }
-        public DateTime? RemoveDate { get; set; }
+
+        private DateTime firstDate;
+        public DateTime FirstDate
+        {
+            get { return firstDate; }
+            set
+            {
+                if (value > DateTime.Now)
+                    throw new ArgumentException("Temporal Information First Date cannot be in the future.");
+                firstDate = value;
+            }
+        }
+
+        private DateTime? removeDate;
+        public DateTime? RemoveDate
+        {
+            get { return removeDate; }
+            set
+            {
+                if (value.HasValue && value < FirstDate)
+                    throw new ArgumentException("Temporal Information Remove Date cannot be earlier than First Date.");
+                removeDate = value;
+            }
+        }
         public string StreetRef { get; set; }
         public int SignalId { get; set; }
         public Signal Signal { get; set; }

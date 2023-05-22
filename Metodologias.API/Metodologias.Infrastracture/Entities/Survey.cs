@@ -8,8 +8,29 @@ namespace Metodologias.Infrastracture.Entities
 {
     public class Survey
     {
-        public int Id { get; set; }
-        public DateTime Date { get; set; }
+        private int id;
+        public int Id
+        {
+            get { return id; }
+            set
+            {
+                if (value < 0)
+                    throw new ArgumentException("Survey Id cannot be negative.");
+                id = value;
+            }
+        }
+
+        private DateTime date;
+        public DateTime Date
+        {
+            get { return date; }
+            set
+            {
+                if (value > DateTime.Now)
+                    throw new ArgumentException("Survey Date cannot be in the future.");
+                date = value;
+            }
+        }
         public int TeamId { get; set; }
         public Team Team { get; set; }
         public int Quality { get; set; }

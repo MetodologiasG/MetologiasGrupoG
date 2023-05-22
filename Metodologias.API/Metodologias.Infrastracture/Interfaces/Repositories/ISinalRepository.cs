@@ -15,5 +15,7 @@ namespace Metodologias.Infrastracture.Interfaces.Repositories
         Task<Signal?> GetById(int id);
 
         Task Update(Signal signal);
+
+        Task<Signal?> GetByRef(string refe);
     }
 }
