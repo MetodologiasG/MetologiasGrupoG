@@ -1,0 +1,116 @@
+.my-popover-container.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.my-popover-container {
+    opacity: 1;
+    position: absolute;
+    z-index: 1000;
+    background-color: white;
+    right: 1rem;
+    top: 3.5rem;
+    border-radius: 20px;
+    padding: 0.5rem;
+    min-width: 450px;
+    max-width: 450px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: -7px 10px 20px -14px rgba(0, 0, 0, 0.30);
+    -moz-box-shadow: -7px 10px 20px -14px rgba(0, 0, 0, 0.30);
+    box-shadow: -7px 10px 20px -14px rgba(0, 0, 0, 0.30);
+    transition: opacity 0.1s linear;
+    visibility: visible;
+}
+
+.my-popover-header {
+    display: flex;
+    background-color: white;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.15);
+    padding: 0.5rem 0.5rem;
+    font-size: 1rem;
+}
+
+.my-popover-upper-tools {
+    margin: 0.5rem 0rem;
+    display: flex;
+}
+
+.my-popover-bottom-tools {
+    margin: 0px;
+    display: flex;
+}
+
+.my-popover-tool {
+    flex: 1;
+}
+
+.my-popover-tool-clean {
+    text-align: right;
+    cursor: pointer;
+}
+
+.my-popover-tool-change-page {
+    flex: 1;
+    text-align: left;
+    cursor: pointer;
+}
+
+.my-popover-item {
+    margin: 0.4rem 0rem 0.7rem 0rem;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.20);
+    padding: 0.4rem;
+    display: flex;
+    align-items: center;
+}
+
+.my-popover-body {
+    text-align: left;
+}
+
+.my-popover-item .checkmark {
+    cursor: pointer;
+    color: var(--main-color);
+}
+
+.my-popover-item .checkmark:hover {
+    color: hsl(160, 100%, 30%);
+}
+
+.my-popover-item .left-side {
+    flex: 8;
+    text-align: left;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    font-size: var(--normal-text-font-size);
+}
+
+.my-popover-item .notification-text {
+    font-size: var(--normal-text-font-size);
+    white-space: normal;
+}
+
+.my-popover-item .notification-date {
+    font-size: 0.85em;
+    color: hsl(20, 0%, 56%);
+    margin-top: 0.4em;
+}
+
+.my-popover-item .right-side {
+    flex: 1;
+    text-align: right;
+}
+
+@media only screen and (max-width: 576px) {
+    .my-popover-container {
+        left: 1.5rem;
+        right: 1.5rem;
+        width: auto;
+        min-width: auto;
+        max-width: unset;
+    }
+
+    .my-popover-item .left-side {
+        flex: 5;
+    }
+}

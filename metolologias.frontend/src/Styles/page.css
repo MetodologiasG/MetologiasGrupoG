@@ -1,0 +1,370 @@
+.pageContainer {
+    margin: 0.8rem;
+}
+
+.pageHeader {
+    text-align: left;
+}
+
+.pageHeaderOptionsContainer {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.pageTitle {
+    font-size: var(--header-font-size);
+}
+
+.pageTitleBackIcon {
+    cursor: pointer;
+}
+
+.pageBody {
+    border: var(--default-border);
+    padding: var(--default-input-padding);
+    margin-top: 20px;
+    border-radius: var(--default-border-radius);
+    text-align: left;
+}
+
+.pageSubHeaderLight {
+    margin: 5px 10px 10px 0px;
+    font-weight: 200;
+    font-size: var(--normal-text-font-size);
+    line-height: 1.8rem;
+}
+
+.pageSubHeader {
+    margin: 5px 10px 10px 0px;
+    font-weight: 600;
+    font-size: var(--normal-text-font-size);
+    line-height: 1.8rem;
+}
+
+.pageSubHeaderBlock {
+    margin: 5px 10px 10px 0px;
+    font-weight: 600;
+    font-size: var(--normal-text-font-size);
+    display: block;
+}
+
+.pageSubHeaderBlockGray {
+    margin: 5px 5px 5px 0px;
+    font-weight: 600;
+    font-size: var(--normal-text-font-size);
+    display: block;
+    border: var(--default-border);
+    min-width: 100%;
+    border-radius: var(--default-border-radius);
+    padding: var(--default-input-padding);
+    background-color: var(--tabs-color);
+}
+
+.pageComponent {
+    margin: 30px 0px 5px 0px;
+}
+
+/* Coluna de criar novo pedido na página da assistências */
+@media (min-width: 992px) {
+    .colAssistenciaPedidos {
+        padding: 0;
+    }
+}
+
+.button {
+    color: white;
+    background-color: var(--button-main-color);
+    padding: var(--default-button-padding);
+    border-radius: var(--default-border-radius);
+    border: var(--default-border);
+    font-size: var(--button-font-size);
+    min-width: 100px;
+    cursor: pointer;
+    opacity: 1;
+    font-family: var(--website-font-family);
+    transition: background-color 0.2s;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.button:hover {
+    background-color: var(--button-hover-color);
+}
+
+.button.cancel {
+    background-color: var(--second-color);
+}
+
+.button.cancel:hover {
+    background-color: var(--button-second-hover-color);
+}
+
+.button.third {
+    background-color: var(--third-color);
+}
+
+.button.fourth {
+    background-color: var(--fourth-color);
+    color: black;
+}
+
+.buttonForm {
+    margin: 1em 2em 0px 0px;
+    padding: 10px;
+}
+
+.button:disabled {
+    opacity: 0.5;
+    background-color: gray;
+}
+
+.label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: var(--input-label-font-size);
+}
+
+.input {
+    font-size: var(--input-font-size);
+    border-radius: var(--default-border-radius);
+    border: var(--default-border);
+    padding: var(--default-input-padding);
+    font-family: var(--website-font-family);
+}
+
+.inputNoStyle {
+    border-radius: var(--default-border-radius);
+    border: var(--default-border);
+    font-size: var(--input-font-size);
+    font-family: var(--website-font-family);
+}
+
+.input:read-only {
+    background-color: var(--disabled-background-color);
+    border-color: hsla(0, 0%, 70%, 0.5);
+    opacity: 0.7;
+}
+
+.input-icons a {
+    position: absolute;
+    right: 0;
+    color: var(--main-color);
+}
+
+.input-icons {
+    width: 100%;
+    margin-bottom: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+    padding: 10px;
+    min-width: 40px;
+}
+
+.error {
+    color: red;
+    font-weight: 500;
+    font-size: 1.5em;
+}
+
+.link {
+    color: rgb(0, 132, 255);
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.inputMaterialUi .MuiInputBase-root {
+    border: var(--default-border);
+    border-radius: var(--default-border-radius);
+}
+
+.inputMaterialUi input {
+    font-family: var(--website-font-family);
+    font-size: var(--input-font-size);
+    padding: var(--default-input-padding);
+    height: unset;
+}
+
+.inputMaterialUi fieldset {
+    border: none;
+}
+
+.disabledFieldsetMaterialDate
+{
+    border-radius: var(--default-border-radius);
+    border: var(--default-border);
+    background-color: var(--disabled-background-color);
+    border-color: hsla(0, 0%, 70%, 0.5);
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Em dispositivos extra large, para as datas ficarem na mesma linha. 1534px é o mínimo do tamanho em que a data aind fica legível */
+@media only screen and (min-width: 1534px) {
+    .inputDateAssistance {
+        width: 12.499999995%;
+    }
+}
+
+/* Quando muda as duas datas deixam de ficar legível na mesma linha e enquanto o tipo de dispositivo não muda, utilizamos o valor de 2 colunas (col-xl-2) */
+@media only screen and (min-width: 1200px) and (max-width: 1533px) {
+    .inputDateAssistance {
+        width: 16.66666666%;
+    }
+}
+
+.textfield {
+    border: var(--default-border);
+    min-width: 100%;
+    border-radius: 15px;
+    padding: 10px;
+    display: block;
+    font-size: 0.85rem;
+    background-color: var(--disabled-background-color);
+}
+
+.select {
+    font-size: var(--input-font-size);
+    border-radius: var(--default-border-radius);
+    border: var(--default-border);
+    padding: var(--default-input-padding);
+    font-family: var(--website-font-family);
+}
+
+.select:disabled {
+    background-color: var(--disabled-background-color);
+    border-color: hsl(0, 0%, 70%);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: "";
+    color: rgb(84, 84, 84);
+}
+
+.CollapseIcon {
+    float: right;
+}
+
+.circularProgressForm {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.iconDownloadTitle {
+    cursor: pointer;
+    font-size: 0.6em;
+    color: hsl(209, 100%, 50%);
+    margin-left: 0.3em;
+}
+
+.SerialNumberPopup label {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.SerialNumberPopup input[type="radio"] {
+    height: 15px;
+    width: 15px;
+}
+
+/* Chat containers */
+.container {
+    border: 2px solid #ccc;
+    background-color: hsl(0, 0%, 90%);
+    border-radius: 15px;
+    padding: 10px;
+    margin: 10px 0;
+    border: var(--default-border);
+    font-size: 0.95rem;
+}
+
+/* Darker chat container */
+.ownerMessage {
+    border-color: #ccc;
+    background-color: hsl(209, 90%, 92%);
+}
+
+.external.container {
+    background-color: hsl(10, 0%, 98%);
+}
+
+.external.ownerMessage {
+    background-color: hsl(250, 66%, 90%);
+}
+
+.sendMessageContainer .sendIcon {
+    color: hsl(220, 90%, 66%);
+}
+
+.sendMessageContainer .external.sendIcon {
+    color: hsl(250, 66%, 70%);
+}
+
+.sendMessageContainer .input-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Clear floats */
+.container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Style images */
+.container img {
+    float: left;
+    max-width: 60px;
+    width: 100%;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+/* Style the right image */
+.container img.right {
+    float: right;
+    margin-left: 20px;
+    margin-right: 0;
+}
+
+/* Style time text */
+.time-right {
+    float: right;
+}
+
+/* Style time text */
+.time-left {
+    float: left;
+}
+
+.userName-chat-right {
+    float: right;
+}
+
+.userName-chat-left {
+    float: left;
+}
+
+@media only screen and (max-width: 700px) {
+    .pageContainer {
+        margin: 0.8rem;
+    }
+}
